@@ -16,51 +16,57 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
 
         <FrameLayout
             android:id="@+id/main_content"
             android:layout_width="match_parent"
-            android:layout_height="635dp">
+            android:layout_height="650dp">
 
         </FrameLayout>
 
-        <LinearLayout
-            android:id="@+id/nav_bar"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="28dp"
-            android:layout_weight="3"
-            android:background="@color/foreign_background"
-            android:gravity="center|center_horizontal"
-            android:orientation="horizontal"
-            android:padding="24dp">
+            android:layout_height="match_parent"
+            android:background="@drawable/corner_shape"
+            android:backgroundTint="@color/foreign_background">
+
 
             <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="0dp"
+                android:id="@+id/home_btn"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:background="#00FFFFFF"
-                android:backgroundTint="#00FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/bookmark_btn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/img_1" />
 
             <ImageButton
-                android:id="@+id/imageButton2"
-                android:layout_width="0dp"
+                android:id="@+id/bookmark_btn"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:background="#00FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/img_2" />
 
             <ImageButton
-                android:id="@+id/imageButton3"
-                android:layout_width="0dp"
+                android:id="@+id/logout_btn"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:background="#00FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/bookmark_btn"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/img" />
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </LinearLayout>
