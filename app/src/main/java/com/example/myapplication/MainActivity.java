@@ -29,15 +29,16 @@ public class MainActivity extends AppCompatActivity {
 
         bookmark.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                setViewFragment(bookmarkFragment);
-            }
+            public void onClick(View view) { setViewFragment(bookmarkFragment); }
         });
-
         home.setOnClickListener(new View.OnClickListener() {
             @Override
+            public void onClick(View view) { setViewFragment(mainFragment); }
+        });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View view) {
-                setViewFragment(mainFragment);
+                // TODO: Logout functionality here
             }
         });
     }
