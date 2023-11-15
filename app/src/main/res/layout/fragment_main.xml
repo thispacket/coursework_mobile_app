@@ -6,11 +6,12 @@
     tools:context=".MainFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+
+    <ListView
+        android:id="@+id/listViewItemsMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="1231212klfdaskjfakljfkl;asdfjkalsdf"
-        android:layout_marginTop="100dp"
-        android:textColor="@color/white"/>
+        android:padding="24dp"/>
 
 </FrameLayout>
