@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
 public class MainFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -21,12 +23,15 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
-        String[] namesArr = new BookmarkFragment().namesArr;
-
         ListView listView = view.findViewById(R.id.listViewItemsMain);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),
-                                                          android.R.layout.simple_expandable_list_item_1,
-                                                          namesArr);
+        ArrayList<MenuItem> menuItems = new ArrayList<>();
+
+        while (menuItems.size() < 10) {
+            menuItems.add(new MenuItem());
+        }
+
+        MenuItemAdapter adapter = new MenuItemAdapter(getActivity(), R.layout.menu_item, menuItems);
+
         listView.setAdapter(adapter);
 
         return view;

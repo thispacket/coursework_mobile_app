@@ -34,19 +34,21 @@
             android:backgroundTint="@color/foreign_background">
 
 
-            <ImageButton
+            <Button
                 android:id="@+id/home_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#00FFFFFF"
+                android:text="Home"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/bookmark_btn"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/img_1" />
+                 />
 
-            <ImageButton
+            <Button
                 android:id="@+id/bookmark_btn"
+                android:text="Bookmark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#00FFFFFF"
@@ -54,18 +56,19 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/img_2" />
+                 />
 
-            <ImageButton
+            <Button
                 android:id="@+id/logout_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#00FFFFFF"
+                android:text="logout"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/bookmark_btn"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/img" />
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

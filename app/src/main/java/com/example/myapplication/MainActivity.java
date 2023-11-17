@@ -6,13 +6,14 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageButton home, bookmark, logout;
+    private Button home, bookmark, logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
