@@ -5,7 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,6 +38,14 @@ public class MenuItemAdapter extends ArrayAdapter<MenuItem> {
 
         if (items.size() > 0) {
             MenuItem item = items.get(position);
+
+            ImageView menuItemImage = convertView.findViewById(R.id.menuItemImage);
+            TextView menuItemName = convertView.findViewById(R.id.menuItemName);
+            TextView menuItemPrice = convertView.findViewById(R.id.menuItemprice);
+
+            menuItemImage.setImageResource(item.image);
+            menuItemName.setText(item.name);
+            menuItemPrice.setText(item.price + "₽/шт.");
         }
 
         return convertView;

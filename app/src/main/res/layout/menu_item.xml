@@ -21,13 +21,14 @@
                 />
 
             <ImageView
+                android:id="@+id/menuItemImage"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginHorizontal="12dp"
-                android:src="@drawable/img" />
+                android:src="@drawable/noodles" />
         </RelativeLayout>
 
         <LinearLayout
@@ -40,12 +41,14 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/menuItemName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Острая сезонная лапша"
                 android:textColor="@color/white" />
 
             <TextView
+                android:id="@+id/menuItemprice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="200₽/шт."
