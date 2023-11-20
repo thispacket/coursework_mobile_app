@@ -25,7 +25,6 @@ public class MainFragment extends Fragment implements AdapterView.OnItemClickLis
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
-//        View menuItemView = inflater.inflate(R.layout.menu_item, container, false);
 
         ListView listView = view.findViewById(R.id.listViewItemsMain);
         ArrayList<MenuItem> menuItems = new ArrayList<>();
