@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BookmarkFragment">
+    tools:context=".BookmarkFragment"
+    android:background="@color/main_background">
 
     <!-- TODO: Update blank fragment layout -->
-
 
     <ListView
         android:id="@+id/listViewItemBookmark"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="24dp"/>
+        tools:listitem="@layout/menu_item"/>
 </FrameLayout>
