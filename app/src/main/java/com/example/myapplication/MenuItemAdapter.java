@@ -1,12 +1,14 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -46,10 +48,21 @@ public class MenuItemAdapter extends ArrayAdapter<MenuItem> {
             menuItemImage.setImageResource(item.image);
             menuItemName.setText(item.name);
             menuItemPrice.setText(item.price + "₽/шт.");
+
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.d("MenuItemAdapter", "onClick: " + item.name);
+                    Intent intent = new Intent(context, MenuItemActivity.class);
+                    intent.putExtra("image", item.image);
+                    intent.putExtra("name", item.name);
+                    intent.putExtra("price", item.price);
+                    context.startActivity(intent);
+                }
+            });
         }
+
 
         return convertView;
     }
-
-
 }

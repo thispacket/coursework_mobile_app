@@ -5,4 +5,5 @@
     <color name="main_background">#393C49</color>
     <color name="foreign_background">#1F1D2B</color>
     <color name="menu_item_bg">#2D303E</color>
+    <color name="stroke_color">#454959</color>
 </resources>

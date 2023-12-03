@@ -1,10 +1,13 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.ViewUtils;
 import androidx.fragment.app.Fragment;
 
+import android.renderscript.ScriptGroup;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +18,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class MainFragment extends Fragment implements AdapterView.OnItemClickListener {
+public class MainFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,25 +34,19 @@ public class MainFragment extends Fragment implements AdapterView.OnItemClickLis
 
 
         Random random = new Random();
+        int randomPrice = random.nextInt(200) * 5;
 
-        menuItems.add(new MenuItem(R.drawable.noodles, random.nextInt(200) * 5, "Noodles"));
-        menuItems.add(new MenuItem(R.drawable.beef, random.nextInt(200) * 5, "Beef"));
-        menuItems.add(new MenuItem(R.drawable.omelette_noodle, random.nextInt(200) * 5, "Omelette noodle"));
-        menuItems.add(new MenuItem(R.drawable.egg, random.nextInt(200) * 5, "Egg"));
-        menuItems.add(new MenuItem(R.drawable.pasta, random.nextInt(200) * 5, "Pasta"));
-        menuItems.add(new MenuItem(R.drawable.vegan_noodle, random.nextInt(200) * 5, "Vegan noodle"));
+        menuItems.add(new MenuItem(R.drawable.noodles, randomPrice, "Noodles"));
+        menuItems.add(new MenuItem(R.drawable.beef, randomPrice, "Beef"));
+        menuItems.add(new MenuItem(R.drawable.omelette_noodle, randomPrice, "Omelette noodle"));
+        menuItems.add(new MenuItem(R.drawable.egg, randomPrice, "Egg"));
+        menuItems.add(new MenuItem(R.drawable.pasta, randomPrice, "Pasta"));
+        menuItems.add(new MenuItem(R.drawable.vegan_noodle, randomPrice, "Vegan noodle"));
 
         MenuItemAdapter adapter = new MenuItemAdapter(getActivity(), R.layout.menu_item, menuItems);
 
         listView.setAdapter(adapter);
 
-
         return view;
-    }
-
-
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-        //
     }
 }
