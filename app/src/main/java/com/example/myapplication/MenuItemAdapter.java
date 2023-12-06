@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -8,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -44,21 +47,31 @@ public class MenuItemAdapter extends ArrayAdapter<MenuItem> {
             ImageView menuItemImage = convertView.findViewById(R.id.menuItemImage);
             TextView menuItemName = convertView.findViewById(R.id.menuItemName);
             TextView menuItemPrice = convertView.findViewById(R.id.menuItemprice);
+            ImageButton menuItemBookmark = convertView.findViewById(R.id.bookmark_icon_item);
 
             menuItemImage.setImageResource(item.image);
             menuItemName.setText(item.name);
             menuItemPrice.setText(item.price + "₽/шт.");
 
-            convertView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Log.d("MenuItemAdapter", "onClick: " + item.name);
-                    Intent intent = new Intent(context, MenuItemActivity.class);
-                    intent.putExtra("image", item.image);
-                    intent.putExtra("name", item.name);
-                    intent.putExtra("price", item.price);
-                    context.startActivity(intent);
+            menuItemBookmark.setOnClickListener(view -> {
+                Log.d("item", item.image + "");
+                if (item.is_bookmark == 0) {
+                    menuItemBookmark.setImageResource(R.drawable.bookmark_icon_active);
+                } else {
+                    menuItemBookmark.setImageResource(R.drawable.bookmark_icon);
                 }
+            });
+
+            convertView.setOnClickListener(view -> {
+                Intent intent = new Intent(context, MenuItemActivity.class);
+                intent.putExtra("image", item.image);
+                intent.putExtra("name", item.name);
+                intent.putExtra("price", item.price);
+                intent.putExtra("description", item.description);
+                intent.putExtra("is_bookmark", item.is_bookmark);
+                intent.putExtra("is_paid", item.is_paid);
+                intent.putExtra("rating", item.rating);
+                context.startActivity(intent);
             });
         }
 

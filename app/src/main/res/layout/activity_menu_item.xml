@@ -78,7 +78,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/img" />
+            app:srcCompat="@drawable/noodle" />
 
     </RelativeLayout>
 
@@ -111,6 +111,7 @@
                 android:layout_alignParentTop="true"
                 android:gravity="center"
                 android:text="100р/шт"
+                android:layout_marginTop="2dp"
                 android:textColor="@color/white" />
 
             <ImageView
@@ -144,6 +145,7 @@
                 android:foregroundGravity="center_vertical"/>
 
             <TextView
+                android:id="@+id/rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -151,7 +153,8 @@
                 android:layout_toEndOf="@+id/imageView"
                 android:text="4.5/5"
                 android:textColor="@color/white"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="2dp"
                 android:gravity="center_vertical"/>
         </RelativeLayout>
 
