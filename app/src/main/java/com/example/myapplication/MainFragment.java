@@ -58,14 +58,13 @@ public class MainFragment extends Fragment {
                 int is_bookmark = cursor.getInt(cursor.getColumnIndex(DBHelper.KEY_IS_BOOKMARK));
                 int is_paid = cursor.getInt(cursor.getColumnIndex(DBHelper.KEY_IS_PAID));
 
-                menuItems.add(new MenuItem(image, price, name, description, is_bookmark, is_paid, rating));
+                menuItems.add(new MenuItem(image, price, name, description, is_bookmark, is_paid, rating, id));
             }
             while (cursor.moveToNext());
         }
         cursor.close();
 
         db.close();
-
 
         MenuItemAdapter adapter = new MenuItemAdapter(getActivity(), R.layout.menu_item, menuItems);
 

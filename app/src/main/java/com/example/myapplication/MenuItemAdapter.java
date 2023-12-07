@@ -2,8 +2,10 @@ package com.example.myapplication;
 
 import android.app.Activity;
 import android.app.ActivityOptions;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,11 +55,24 @@ public class MenuItemAdapter extends ArrayAdapter<MenuItem> {
             menuItemName.setText(item.name);
             menuItemPrice.setText(item.price + "₽/шт.");
 
+            if (item.is_bookmark == 1) {
+                menuItemBookmark.setImageResource(R.drawable.bookmark_icon_active);
+            }
+
+            SQLiteDatabase db = new DBHelper(context).getWritableDatabase();
+            ContentValues contentValues = new ContentValues();
+
             menuItemBookmark.setOnClickListener(view -> {
-                Log.d("item", item.image + "");
                 if (item.is_bookmark == 0) {
+                    item.is_bookmark = 1;
+                    contentValues.put(DBHelper.KEY_IS_BOOKMARK, item.is_bookmark);
+                    db.update(DBHelper.TABLE_MENU, contentValues, DBHelper.KEY_ID + " = ?", new String[]{String.valueOf(item.id)});
                     menuItemBookmark.setImageResource(R.drawable.bookmark_icon_active);
+                    db.close();
                 } else {
+                    item.is_bookmark = 0;
+                    contentValues.put(DBHelper.KEY_IS_BOOKMARK, item.is_bookmark);
+                    db.update(DBHelper.TABLE_MENU, contentValues, DBHelper.KEY_ID + " = ?", new String[]{String.valueOf(item.id)});
                     menuItemBookmark.setImageResource(R.drawable.bookmark_icon);
                 }
             });

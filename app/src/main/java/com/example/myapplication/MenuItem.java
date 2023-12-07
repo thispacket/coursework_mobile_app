@@ -9,12 +9,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 public class MenuItem extends Activity {
-    public int image, price, rating, is_bookmark, is_paid;
+    public int image, price, rating, is_bookmark, is_paid, id;
     public String name, description;
-    private DBHelper dbHelper;
 
-
-    public MenuItem(int image, int price, String name,  String description, int is_bookmark, int is_paid, int rating) {
+    public MenuItem(int image, int price, String name,  String description, int is_bookmark, int is_paid, int rating, int id) {
+        this.id = id;
         this.image = image;
         this.price = price;
         this.name = name;
@@ -22,8 +21,6 @@ public class MenuItem extends Activity {
         this.is_bookmark = is_bookmark;
         this.is_paid = is_paid;
         this.rating = rating;
-
-
     }
 
 
