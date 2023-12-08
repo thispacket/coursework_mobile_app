@@ -6,11 +6,47 @@
     tools:context=".BookmarkFragment"
     android:background="@color/main_background">
 
-    <!-- TODO: Update blank fragment layout -->
-
     <ListView
         android:id="@+id/listViewItemBookmark"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/menu_item_bookmark"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="center"
+            android:background="@drawable/corner_shape">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/card_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView2"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:text="Credit card"
+                android:textAlignment="center"
+                android:textColor="@color/white"/>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
 </FrameLayout>
