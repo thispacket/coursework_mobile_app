@@ -56,6 +56,7 @@ public class MenuItemBookmarkAdapter extends ArrayAdapter<MenuItemBookmark> {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put(DBHelper.KEY_IS_BOOKMARK, 0);
                 db.update(DBHelper.TABLE_MENU, contentValues, DBHelper.KEY_ID + " = ?", new String[]{String.valueOf(itemBookmark.id)});
+
                 menuItemsBookmark.remove(position);
                 db.close();
             });

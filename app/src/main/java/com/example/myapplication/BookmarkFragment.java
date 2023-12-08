@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.R.layout;
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -16,21 +17,32 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BookmarkFragment extends Fragment {
+
+    private boolean checked = false;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
+    @SuppressLint("Range")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_bookmark, container, false);
+
+        RelativeLayout creditCardItem = view.findViewById(R.id.credit_card_item);
+        RelativeLayout cashItem = view.findViewById(R.id.cash_item);
+        RelativeLayout nextStep = view.findViewById(R.id.next_step_item);
+        ImageView checkedCardIcon = view.findViewById(R.id.checked_card_icon);
+        ImageView checkedCashIcon = view.findViewById(R.id.checked_cash_icon);
 
         ListView listView = view.findViewById(R.id.listViewItemBookmark);
         ArrayList<MenuItemBookmark> menuItemsBookmark = new ArrayList<>();
@@ -38,6 +50,7 @@ public class BookmarkFragment extends Fragment {
         DBHelper dbHelper = new DBHelper(getActivity());
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         ContentValues contentValues = new ContentValues();
+
 
         Cursor cursor = db.query(DBHelper.TABLE_MENU, null, "is_bookmark = 1", null, null, null, null, null);
         if (cursor.moveToFirst() && cursor.getCount() > 0) {
@@ -61,6 +74,25 @@ public class BookmarkFragment extends Fragment {
         MenuItemBookmarkAdapter adapter = new MenuItemBookmarkAdapter(getActivity(), R.layout.menu_item_bookmark, menuItemsBookmark);
 
         listView.setAdapter(adapter);
+
+        checkedCardIcon.setImageResource(R.drawable.checked_icon);
+
+        creditCardItem.setOnClickListener(v -> {
+            checkedCardIcon.setImageResource(R.drawable.checked_icon);
+            checkedCashIcon.setImageResource(0);
+            checked = true;
+        });
+
+        cashItem.setOnClickListener(v -> {
+            checkedCashIcon.setImageResource(R.drawable.checked_icon);
+            checkedCardIcon.setImageResource(0);
+            checked = true;
+        });
+
+        nextStep.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), PaymentActivity.class);
+            startActivity(intent);
+        });
 
         return view;
     }
