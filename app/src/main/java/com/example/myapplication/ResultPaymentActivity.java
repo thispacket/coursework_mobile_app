@@ -6,18 +6,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
-public class PaymentActivity extends AppCompatActivity {
+public class ResultPaymentActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_payment);
+        setContentView(R.layout.activity_result_payment);
 
-        Button payBtn = findViewById(R.id.pay_btn);
+        Button backBtn = findViewById(R.id.back_btn);
 
-        payBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(PaymentActivity.this, LoadingActivity.class);
+        backBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(ResultPaymentActivity.this, MainActivity.class);
             startActivity(intent);
         });
+
     }
 }
