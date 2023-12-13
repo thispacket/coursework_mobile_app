@@ -19,7 +19,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button home, bookmark, logout;
+    private ImageButton home, bookmark, logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         int[] images = {R.drawable.pasta, R.drawable.beef, R.drawable.egg, R.drawable.noodle, R.drawable.spicy, R.drawable.vegan};
         String names = "Острая сезонная лапша";
         int[] prices = {randomPrice, randomPrice, randomPrice, randomPrice, randomPrice, randomPrice, randomPrice};
-        int[] ratings = {0, 0, 0, 0, 0, 0, 0};
+        int[] ratings = {3, 2, 1, 5, 3, 0, 3};
         int is_bookmarks = 0;
         int is_pays = 0;
         String description = "Vivamus molestie felis ut blandit blandit. Maecenas eleifend lectus vel pulvinar ultrices. Nam leo dui, volutpat a tempus commodo, mattis eu nisi. Vivamus varius imperdiet velit ac ornare. ";
@@ -71,7 +71,8 @@ public class MainActivity extends AppCompatActivity {
         bookmark.setOnClickListener(view -> setViewFragment(bookmarkFragment));
         home.setOnClickListener(view -> setViewFragment(mainFragment));
         logout.setOnClickListener(view -> {
-            // TODO: Logout functionality here
+            finish();
+            System.exit(0);
         });
     }
 

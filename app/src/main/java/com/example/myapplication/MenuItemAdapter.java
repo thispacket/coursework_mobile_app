@@ -79,6 +79,7 @@ public class MenuItemAdapter extends ArrayAdapter<MenuItem> {
 
             convertView.setOnClickListener(view -> {
                 Intent intent = new Intent(context, MenuItemActivity.class);
+                intent.putExtra("id", item.id);
                 intent.putExtra("image", item.image);
                 intent.putExtra("name", item.name);
                 intent.putExtra("price", item.price);
