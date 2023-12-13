@@ -89,8 +89,11 @@ public class BookmarkFragment extends Fragment {
             checked = true;
         });
 
+        int total = menuItemsBookmark.stream().mapToInt(item -> item.price).sum();
+
         nextStep.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), PaymentActivity.class);
+            intent.putExtra("price", total);
             startActivity(intent);
         });
 

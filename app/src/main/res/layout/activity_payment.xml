@@ -81,6 +81,7 @@
             app:layout_constraintTop_toBottomOf="@+id/name_title" />
 
         <ImageView
+            android:id="@+id/name_checked_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/correct_icon"
@@ -128,6 +129,7 @@
             app:layout_constraintTop_toBottomOf="@+id/card_number_title" />
 
         <ImageView
+            android:id="@+id/number_checked_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
@@ -172,7 +174,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/corner_shape"
-                android:ems="10"
+                android:ems="7"
                 android:inputType="date|datetime"
                 android:padding="20dp"
                 android:text="02/2022"
@@ -183,6 +185,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/date_title" />
 
             <ImageView
+                android:id="@+id/date_checked_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
@@ -231,6 +234,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/cvv_title" />
 
             <ImageView
+                android:id="@+id/cvv_checked_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
@@ -265,6 +269,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/total_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/corner_success"
@@ -290,11 +295,12 @@
         android:paddingVertical="10dp">
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/back_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/corner_button"
             android:text="Отмена"
-            android:ems="10"
+            android:ems="9"
             android:paddingVertical="20dp"
             android:textColor="#EA7C69"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -308,18 +314,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/corner_button"
-            android:ems="10"
-            android:paddingVertical="20dp"
-            android:text="Оплатить"
             android:backgroundTint="#EA7C69"
+            android:ems="8"
+            android:outlineAmbientShadowColor="#EA7C69"
+            android:paddingVertical="20dp"
+            android:shadowColor="#EA7C69"
+            android:shadowRadius="1000"
+            android:text="Оплатить"
             android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:shadowColor="#EA7C69"
-            android:shadowRadius="1000"
-            android:outlineAmbientShadowColor="#EA7C69"/>
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/back_btn"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
